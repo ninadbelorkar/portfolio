@@ -55,7 +55,7 @@ export const projects: Project[] = [
     description:
       'An intelligent video data-hiding service that embeds and extracts hidden data within video files using cloud-native infrastructure.',
     problem:
-      'Securely transmitting hidden information within video content requires combining steganography algorithms with reliable, scalable cloud infrastructure — a non-trivial engineering challenge.',
+      'Securely transmitting hidden information within video content requires combining steganography algorithms with reliable, scalable cloud infrastructure, a non-trivial engineering challenge.',
     whatIBuilt:
       'A cloud-native service that accepts video uploads, processes them through an OpenCV-based steganography pipeline to embed or extract hidden data, and returns the processed output. The entire service is containerised and deployed on AWS Fargate.',
     engineering:

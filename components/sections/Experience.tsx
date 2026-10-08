@@ -89,6 +89,7 @@ function ExpItem({ exp, showDivider }: { exp: (typeof experience)[0]; showDivide
     >
       {/* Header row: role — company / logo / period */}
       <div
+        className="exp-header"
         style={{
           display: 'flex',
           justifyContent: 'space-between',
@@ -132,7 +133,7 @@ function ExpItem({ exp, showDivider }: { exp: (typeof experience)[0]; showDivide
             }}
           >
             {exp.role}
-            <span style={{ fontWeight: 400, color: 'var(--color-fg-2)' }}> — {exp.company}</span>
+            <span style={{ fontWeight: 400, color: 'var(--color-fg-2)' }}>, {exp.company}</span>
           </h3>
         </div>
 

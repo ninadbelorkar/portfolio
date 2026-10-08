@@ -7,11 +7,11 @@ import FadeIn from '@/components/ui/FadeIn'
 import { ArrowLeft } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Projects — Ninad Belorkar',
-  description: 'All projects by Ninad Belorkar — software engineering, cloud infrastructure, AI integration, and testing.',
+  title: 'Projects - Ninad Belorkar',
+  description: 'All projects by Ninad Belorkar - software engineering, cloud infrastructure, AI integration, and testing.',
   alternates: { canonical: '/projects' },
   openGraph: {
-    title: 'Projects — Ninad Belorkar',
+    title: 'Projects - Ninad Belorkar',
     description: 'All projects by Ninad Belorkar.',
     url: 'https://ninadbelorkar.space/projects',
   },
@@ -53,7 +53,7 @@ export default function ProjectsPage() {
               Projects
             </h1>
             <p style={{ fontSize: 'var(--text-body)', color: 'var(--color-fg-2)', lineHeight: 'var(--text-body-leading)', maxWidth: '480px' }}>
-              Things I&apos;ve built — software engineering, cloud infrastructure, AI integration, and testing.
+              Things I&apos;ve built: software engineering, cloud infrastructure, AI integration, and testing.
             </p>
           </FadeIn>
         </div>

@@ -11,13 +11,13 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Ninad Belorkar — Software Engineer',
+  title: 'Ninad Belorkar - Software Engineer',
   description:
     'Portfolio of Ninad Belorkar, a Computer Science Engineer and Software Intern building software, cloud, backend, testing and AI-driven solutions.',
   metadataBase: new URL('https://ninadbelorkar.space'),
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'Ninad Belorkar — Software Engineer',
+    title: 'Ninad Belorkar - Software Engineer',
     description:
       'Portfolio of Ninad Belorkar, a Computer Science Engineer and Software Intern building software, cloud, backend, testing and AI-driven solutions.',
     url: 'https://ninadbelorkar.space',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ninad Belorkar — Software Engineer',
+    title: 'Ninad Belorkar - Software Engineer',
     description:
       'Portfolio of Ninad Belorkar, a Computer Science Engineer and Software Intern building software, cloud, backend, testing and AI-driven solutions.',
   },

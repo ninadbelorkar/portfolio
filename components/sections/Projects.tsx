@@ -81,7 +81,7 @@ export function ProjectCard({ project }: { project: Project }) {
         <div style={{ width: '100%', height: '280px', backgroundColor: 'var(--color-bg-2)', borderBottom: 'var(--border-1)' }} />
       )}
 
-      <div style={{ padding: 'var(--sp-8) var(--sp-10)' }}>
+      <div className="card-body" style={{ padding: 'var(--sp-8) var(--sp-10)' }}>
         {/* Title */}
         <h3 style={{
           fontSize: 'var(--text-title)',

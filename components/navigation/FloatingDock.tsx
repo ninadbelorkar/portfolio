@@ -19,20 +19,35 @@ export default function FloatingDock() {
   const [resumeOpen,  setResumeOpen]  = useState(false)
   const popRef = useRef<HTMLDivElement>(null)
 
-  /* Active section via IntersectionObserver */
+  /* Active section via IntersectionObserver — defaults to 'home' */
   useEffect(() => {
     const obs: IntersectionObserver[] = []
+
+    // If at very top of page, always keep 'home' active
+    const handleScroll = () => {
+      if (window.scrollY < 80) setActive('home')
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
     NAV.forEach(({ id }) => {
       const el = document.getElementById(id)
       if (!el) return
       const o = new IntersectionObserver(
-        ([e]) => { if (e.isIntersecting) setActive(id) },
-        { rootMargin: '-35% 0px -35% 0px', threshold: 0 }
+        ([e]) => {
+          // Only update active when section is well within viewport
+          // and user has scrolled past the very top
+          if (e.isIntersecting && window.scrollY >= 80) setActive(id)
+        },
+        { rootMargin: '-40% 0px -40% 0px', threshold: 0 }
       )
       o.observe(el)
       obs.push(o)
     })
-    return () => obs.forEach(o => o.disconnect())
+
+    return () => {
+      obs.forEach(o => o.disconnect())
+      window.removeEventListener('scroll', handleScroll)
+    }
   }, [])
 
   /* Close resume popover on outside click */
@@ -60,7 +75,7 @@ export default function FloatingDock() {
         transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.35 }}
         style={{ pointerEvents: 'auto' }}
       >
-        <div style={{
+        <div className="dock-inner" style={{
           display: 'flex',
           alignItems: 'center',
           gap: '3px',
@@ -115,8 +130,9 @@ export default function FloatingDock() {
                     width: '38px', height: '38px', borderRadius: '50%',
                     border: 'none', cursor: 'pointer', flexShrink: 0,
                   }}
+                  className="dock-btn"
                 >
-                  <Icon size={16} />
+                  <Icon size={16} className="dock-icon" />
                 </motion.button>
               </div>
             )

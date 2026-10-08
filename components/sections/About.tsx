@@ -14,7 +14,7 @@ export default function About() {
         <div style={{ maxWidth: '640px' }}>
           {/* Opening statement — visual anchor of this section */}
           <FadeIn delay={0.06}>
-            <p style={{
+            <p className="about-statement" style={{
               fontSize: 'var(--text-h1)',
               fontWeight: 'var(--text-h1-weight)',
               letterSpacing: 'var(--text-h1-tracking)',
@@ -29,7 +29,7 @@ export default function About() {
           <FadeIn delay={0.1}>
             <p style={{ fontSize: 'var(--text-body)', color: 'var(--color-fg-2)', lineHeight: 'var(--text-body-leading)', marginBottom: 'var(--sp-4)' }}>
               My background spans backend systems, cloud infrastructure, AI integration, and software
-              testing — areas I&apos;ve explored through internships and personal projects.
+              testing, areas I&apos;ve explored through internships and personal projects.
             </p>
           </FadeIn>
 

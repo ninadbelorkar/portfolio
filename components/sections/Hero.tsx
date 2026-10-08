@@ -16,6 +16,7 @@ export default function Hero() {
 
         {/* Name + Photo row */}
         <div
+          className="hero-layout"
           style={{
             display: 'flex',
             justifyContent: 'space-between',
@@ -25,7 +26,7 @@ export default function Hero() {
           }}
         >
           {/* Left: Name + Identity */}
-          <div>
+          <div className="hero-left">
             <FadeIn delay={0.04}>
               <h1
                 style={{
@@ -52,7 +53,7 @@ export default function Hero() {
           </div>
 
           {/* Right: Photo — small, secondary */}
-          <FadeIn delay={0.22} style={{ flexShrink: 0 }}>
+          <FadeIn delay={0.22} style={{ flexShrink: 0 }} className="hero-photo">
             <div
               style={{
                 width: '192px',

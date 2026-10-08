@@ -145,14 +145,72 @@ section[id] { scroll-margin-top: 1rem; }
 }
 
 /* ── Responsive ──────────────────────────────────────────────── */
+
+/* ── Tablet (≤ 900px) ── */
 @media (max-width: 900px) {
-  :root { --content-gutter: 32px; }
-}
-@media (max-width: 640px) {
-  :root { --content-gutter: 20px; --sp-22: 64px; }
-  /* Hero tagline may wrap on mobile */
-  .hero-tagline { white-space: normal !important; text-align: center; }
-  /* Skills grid collapses to single column */
-  .skills-row { grid-template-columns: 1fr !important; gap: var(--sp-2) !important; }
+  :root {
+    --content-gutter: 32px;
+    --text-display: clamp(52px, 8vw, 80px);
+  }
+  .s {
+    padding-top: var(--sp-16);
+    padding-bottom: var(--sp-16);
+  }
 }
 
+/* ── Large mobile (≤ 640px) ── */
+@media (max-width: 640px) {
+  :root {
+    --content-gutter: 20px;
+    --text-display: clamp(44px, 12vw, 64px);
+  }
+  .s {
+    padding-top: var(--sp-14);
+    padding-bottom: var(--sp-14);
+  }
+
+  /* Hero: stack column on mobile — photo drops below identity */
+  .hero-layout {
+    flex-direction: column !important;
+    gap: var(--sp-6) !important;
+  }
+  .hero-left  { order: 1; }
+  .hero-photo { order: 2; }
+
+  /* Tagline wraps naturally on mobile */
+  .hero-tagline { white-space: normal !important; text-align: center; }
+
+  /* Skills grid collapses to single column */
+  .skills-row { grid-template-columns: 1fr !important; gap: var(--sp-1) !important; }
+
+  /* Experience: date wraps below role */
+  .exp-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: var(--sp-1) !important;
+  }
+
+  /* Contact buttons stack vertically */
+  .contact-actions { flex-direction: column !important; align-items: flex-start !important; }
+
+  /* Project card body — tighter padding */
+  .card-body { padding: var(--sp-6) !important; }
+
+  /* About statement — slightly smaller on mobile */
+  .about-statement { font-size: clamp(22px, 6vw, 32px) !important; }
+
+  /* Section eyebrow — less bottom margin */
+  .eyebrow { margin-bottom: var(--sp-8); }
+}
+
+/* ── Small mobile (≤ 420px) ── */
+@media (max-width: 420px) {
+  :root {
+    --content-gutter: 16px;
+    --text-display: clamp(40px, 13vw, 56px);
+  }
+  /* Dock: compact on very small screens */
+  .dock-btn { width: 32px !important; height: 32px !important; }
+  .dock-icon { width: 14px !important; height: 14px !important; }
+  .dock-inner { padding: 4px 6px !important; gap: 1px !important; }
+}
