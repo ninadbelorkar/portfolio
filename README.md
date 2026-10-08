@@ -1,36 +1,137 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ninad Belorkar — Portfolio
 
-## Getting Started
+Personal portfolio website for **Ninad Belorkar**, Software Intern & Computer Science Engineer.
 
-First, run the development server:
+🌐 **Live site:** [ninadbelorkar.space](https://ninadbelorkar.space)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | [Next.js 16](https://nextjs.org/) (App Router, Turbopack) |
+| Language | TypeScript |
+| Styling | Vanilla CSS (custom design tokens in `globals.css`) |
+| Animations | [Framer Motion](https://www.framer.com/motion/) |
+| Icons | [Lucide React](https://lucide.dev/) |
+| Deployment | [Vercel](https://vercel.com/) |
+
+---
+
+## Project Structure
+
+```
+portfolio/
+├── app/
+│   ├── globals.css        # Design tokens — colors, type, spacing, grid
+│   ├── layout.tsx         # Root layout — FloatingDock + WelcomeIntro
+│   ├── page.tsx           # Homepage
+│   └── projects/
+│       └── page.tsx       # /projects — full project listing
+├── components/
+│   ├── navigation/
+│   │   └── FloatingDock.tsx   # Bottom navigation dock
+│   ├── sections/
+│   │   ├── Hero.tsx
+│   │   ├── Experience.tsx
+│   │   ├── Projects.tsx
+│   │   ├── Skills.tsx
+│   │   ├── About.tsx
+│   │   ├── Contact.tsx
+│   │   └── Footer.tsx
+│   └── ui/
+│       ├── FadeIn.tsx         # Scroll-triggered fade animation
+│       ├── LinkButton.tsx     # Unified button component
+│       ├── SocialIcons.tsx    # GitHub / LinkedIn icons
+│       └── WelcomeIntro.tsx   # One-time welcome animation
+├── data/
+│   ├── experience.ts      # Work experience entries
+│   ├── projects.ts        # Project data
+│   ├── skills.ts          # Skills by category
+│   └── social.ts          # Social links / email
+└── public/
+    ├── images/
+    │   ├── profile/       # profile.png
+    │   ├── projects/      # project poster images
+    │   └── experience/    # optional company logos
+    └── resume/
+        └── Ninad_Belorkar_VIT.pdf
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Local Development
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000).
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment (Vercel)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Push this repo to GitHub.
+2. Go to [vercel.com](https://vercel.com) → **New Project** → import the repo.
+3. Vercel auto-detects Next.js. No extra configuration needed.
+4. Set your custom domain `ninadbelorkar.space` in **Project → Settings → Domains**.
 
-## Deploy on Vercel
+No environment variables are required — the site is fully static.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Adding Assets
+
+### Profile photo
+Replace `public/images/profile/profile.png` with your photo.
+
+### Project posters
+Add images to `public/images/projects/` and reference them in `data/projects.ts`:
+
+```ts
+poster: '/images/projects/your-image.png'
+```
+
+### Company logos (optional)
+Add images to `public/images/experience/` and uncomment the `logo` field in `data/experience.ts`:
+
+```ts
+logo: '/images/experience/company.png'
+```
+
+### Resume
+Replace `public/resume/Ninad_Belorkar_VIT.pdf` with your latest resume.  
+Update the filename references in:
+- `components/navigation/FloatingDock.tsx`
+- `components/sections/Contact.tsx`
+
+---
+
+## Content
+
+All content is data-driven. Update these files to change what appears on the site:
+
+| File | Controls |
+|---|---|
+| `data/experience.ts` | Work experience entries |
+| `data/projects.ts` | Projects (featured + all) |
+| `data/skills.ts` | Skills by category |
+| `data/social.ts` | Email, GitHub, LinkedIn, Instagram links |
+
+---
+
+## Design System
+
+One unified design system. All tokens live in `app/globals.css`.
+
+- **Colors:** `--color-bg`, `--color-fg`, `--color-fg-2`, `--color-fg-3`, `--color-surface`, `--color-accent`
+- **Typography:** `--text-display`, `--text-h1`, `--text-title`, `--text-body`, `--text-meta`
+- **Spacing:** `--sp-1` through `--sp-22`
+- **Layout:** `.c` (container, 1200px max-width) · `.s` (section padding)
+
+---
+
+Built with Next.js · Deployed on Vercel
